@@ -402,18 +402,14 @@ Hates A Post 7/12
 Parse.Cloud.define("PostHates", function(request, response) {
   query = new Parse.Query("Secret");
   var uid=request.params.userId; 
-  query.get(request.params.secretId, {
+  query.get(request.params.secretId,{ useMasterKey: true } {
     success: function(result) {
       result.increment("hates");
       result.save();
       var user=result.get("user");
-      var sessionToken=request.params.sessionToken;
-      
-      // if(user.id != uid){
-query.find({ sessionToken: token }) // pass the session token to find()
-    .then(function(messages) {
-      response.success(messages);
-           var Activity = Parse.Object.extend("Activity");
+      if(user.id != uid){
+
+        var Activity = Parse.Object.extend("Activity");
         var activity = new Activity();
         activity.set("userId",user.id);
         activity.set("secret",result);
@@ -423,9 +419,7 @@ query.find({ sessionToken: token }) // pass the session token to find()
         activity.set("type", "PostHates");
         activity.set("viewed",false);
         activity.save();
-    });
-   
-      // }
+      }
 
       //***************************************************
       //PUSH TO OWNER
