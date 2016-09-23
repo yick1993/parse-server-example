@@ -1,10 +1,10 @@
 branch-defaults:
   master:
-    environment: eb-dev
+    environment: parse-eb-dev
     group_suffix: null
 global:
-  application_name: eb
-  default_ec2_keyname: null
+  application_name: parse-eb
+  default_ec2_keyname: yick_key
   default_platform: Node.js
   default_region: ap-southeast-1
   profile: eb-cli
