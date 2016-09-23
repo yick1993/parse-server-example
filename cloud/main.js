@@ -402,10 +402,7 @@ Hates A Post 7/12
 Parse.Cloud.define("PostHates", function(request, response) {
   query = new Parse.Query("Secret");
   var uid=request.params.userId; 
-  var token = user.getSessionToken();
-  response.error("token : "+ token);
-  query.find({ sessionToken: token }).then
-  query.get(request.params.secretId, {
+  query.get({ useMasterKey: true },request.params.secretId, {
     success: function(result) {
       result.increment("hates");
       result.save();
