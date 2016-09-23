@@ -407,9 +407,8 @@ Parse.Cloud.define("PostHates", function(request, response) {
       result.increment("hates");
       result.save();
       var user=result.get("user");
-       response.error("Got an error hating a post 000 :" + user.id + " : "+ uid);
       if(user.id != uid){
-        response.error("Got an error hating a post 444 :" + user);
+
         var Activity = Parse.Object.extend("Activity");
         var activity = new Activity();
         activity.set("userId",user.id);
@@ -420,9 +419,6 @@ Parse.Cloud.define("PostHates", function(request, response) {
         activity.set("type", "PostHates");
         activity.set("viewed",false);
         activity.save();
-        response.error("Got an error hating a post 555 :" + result + userId);
-      }else{
-        response.error("Got an error hating a post 666 :" + result + userId);
       }
 
       //***************************************************
@@ -447,7 +443,7 @@ Parse.Cloud.define("PostHates", function(request, response) {
         },//end push success
         error: function(error) {
           console.log("Got an error " + error.code + ":" + error.message); 
-          response.error("Got an error hating a post 111 :" + error.message);
+          response.error("Got an error hating a post");
         }//end push error
       });//end push notification
 
@@ -455,7 +451,6 @@ Parse.Cloud.define("PostHates", function(request, response) {
     },
     error: function(error) {
       console.error("Got an error " + error.code + " : " + error.message);
-        response.error("Got an error hating a post 222 :" + error.message);
     }
   });//end query
 });
