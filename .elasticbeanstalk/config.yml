@@ -1,9 +1,9 @@
 branch-defaults:
   master:
-    environment: parse-eb-dev
+    environment: eb-dev
     group_suffix: null
 global:
-  application_name: parse-eb
+  application_name: parse_eb
   default_ec2_keyname: yick_key
   default_platform: Node.js
   default_region: ap-southeast-1
