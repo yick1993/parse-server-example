@@ -421,6 +421,8 @@ Parse.Cloud.define("PostHates", function(request, response) {
         activity.set("viewed",false);
         activity.save();
         response.error("Got an error hating a post 555 :" + result + userId);
+      }else{
+        response.error("Got an error hating a post 666 :" + result + userId);
       }
 
       //***************************************************
