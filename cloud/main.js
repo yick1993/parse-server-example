@@ -407,7 +407,7 @@ Parse.Cloud.define("PostHates", function(request, response) {
       result.increment("hates");
       result.save();
       var user=result.get("user");
-       response.error("Got an error hating a post 000 :" + user);
+       response.error("Got an error hating a post 000 :" + user.id + " : "+ uid);
       if(user.id != uid){
         response.error("Got an error hating a post 444 :" + user);
         var Activity = Parse.Object.extend("Activity");
