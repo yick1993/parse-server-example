@@ -16,7 +16,7 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'cpX2tTZezdrl4eyBmO430g2Jl27TeuMljfpGa81E',
   masterKey: process.env.MASTER_KEY || 'EGoZo0sZZ1QLCg1a5boiPWfhlSKs0u8NKrKLlxTH', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://eb-dev.ap-southeast-1.elasticbeanstalk.com/parse',  // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'http://54.169.214.167/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
