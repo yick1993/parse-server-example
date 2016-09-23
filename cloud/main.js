@@ -1,17 +1,17 @@
 var fs = require('fs');
-// var layer = require('cloud/layer-parse-module/layer-module.js');
+var layer = require('cloud/layer-parse-module/layer-module.js');
 
-// var layerProviderID = 'layer:///providers/b1a6b610-ef56-11e4-8151-d4f42c00641d';
-// var layerKeyID = 'layer:///keys/1e4445ca-2f86-11e5-b9f8-0dbd000061cf';
-// var privateKey = fs.readFileSync('cloud/layer-parse-module/keys/layer-key.js');
-// layer.initialize(layerProviderID, layerKeyID, privateKey);
+var layerProviderID = 'layer:///providers/b1a6b610-ef56-11e4-8151-d4f42c00641d';
+var layerKeyID = 'layer:///keys/1e4445ca-2f86-11e5-b9f8-0dbd000061cf';
+var privateKey = fs.readFileSync('cloud/layer-parse-module/keys/layer-key.js');
+layer.initialize(layerProviderID, layerKeyID, privateKey);
 
 Parse.Cloud.define("generateToken", function(request, response) {
  var userID = request.params.userID;
  var nonce = request.params.nonce;
  if (!userID) throw new Error('Missing userID parameter');
  if (!nonce) throw new Error('Missing nonce parameter');
- // response.success(layer.layerIdentityToken(userID, nonce));
+ response.success(layer.layerIdentityToken(userID, nonce));
 });
 
 
