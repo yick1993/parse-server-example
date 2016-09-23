@@ -443,7 +443,8 @@ Parse.Cloud.define("PostHates", function(request, response) {
         },//end push success
         error: function(error) {
           console.log("Got an error " + error.code + ":" + error.message); 
-          response.error("Got an error hating a post");
+ //         response.error("Got an error hating a post");
+           response.error("Got an error " + error.code + ":" + error.message);
         }//end push error
       });//end push notification
 
