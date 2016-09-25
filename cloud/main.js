@@ -303,39 +303,42 @@ Parse.Cloud.define("FollowPost", function(request, response) {
       var op = new Operation();
       op.set("userId",uid);
       op.set("secretId",request.params.secretId);
-      op.set("type","SecretLiked");
+      op.set("type","FollowPost");
       op.save();
 
       if(uid==user.id){
-        console.log("Liked from the same user");
+        console.log("FollowPost from the same user");
         response.success("Success");
       }
       //set push notification for owner
        /***********************
       Push Notification
       ************************/
-      var pushQuery = new Parse.Query(Parse.Installation);
-      //pushQuery.equalTo('deviceType', 'ios');
-      pushQuery.equalTo("userId",user.id);
-      pushQuery.equalTo('enable', true);
+      // var pushQuery = new Parse.Query(Parse.Installation);
+      // //pushQuery.equalTo('deviceType', 'ios');
+      // pushQuery.equalTo("userId",user.id);
+      // pushQuery.equalTo('enable', true);
 
-      console.log("Start Push Notification");
-      Parse.Push.send({
-        where: pushQuery, // Set our Installation query
-        data: {
-          alert: 'Someone followed your 呢D. \ue056 \ue056',
-          badge: 1
+      // console.log("Start Push Notification");
+      // Parse.Push.send({
+      //   where: pushQuery, // Set our Installation query
+      //   data: {
+      //     alert: 'Someone followed your 呢D. \ue056 \ue056',
+      //     badge: 1
 
-        }
-      },{useMasterKey: true}).then(function(){
-        // Push was successful
-        response.success("success");
-        },//end push success
-        function(error) {
-          console.log("Got an error " + error.code + ":" + error.message); 
-          response.error("failed 2 :"+error.message);
-        //end push error
-      });//end push notification
+      //   }
+      // }, 
+      // {
+      //   success: function() {
+      //   // Push was successful
+      //   response.success("success");
+      //   },//end push success
+      //   error: function(error) {
+      //     console.log("Got an error " + error.code + ":" + error.message); 
+      //     response.error("failed 2 :"+error.message);
+      //   }//end push error
+      // });//end push notification
+
     },
     error: function(error) {
       console.error("Got an error " + error.code + " : " + error.message);
