@@ -329,7 +329,7 @@ Parse.Cloud.define("FollowPost", function(request, response) {
         }
       },{useMasterKey: true}).then(function()
       {
-        success: function() {
+        // success: function() {
         // Push was successful
         response.success("success");
         },//end push success
