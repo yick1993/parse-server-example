@@ -325,21 +325,17 @@ Parse.Cloud.define("FollowPost", function(request, response) {
         data: {
           alert: 'Someone followed your 呢D. \ue056 \ue056',
           badge: 1
- 
+
         }
-      },{useMasterKey: true}).then(function()
-      {
-        // success: function() {
+      },{useMasterKey: true}).then(function(){
         // Push was successful
         response.success("success");
         },//end push success
-        // error: function(error) {
-          function(error) {
+        function(error) {
           console.log("Got an error " + error.code + ":" + error.message); 
           response.error("failed 2 :"+error.message);
-        }//end push error
-      );//end push notification
-
+        //end push error
+      });//end push notification
     },
     error: function(error) {
       console.error("Got an error " + error.code + " : " + error.message);
