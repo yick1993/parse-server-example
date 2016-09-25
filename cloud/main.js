@@ -338,7 +338,7 @@ Parse.Cloud.define("FollowPost", function(request, response) {
           console.log("Got an error " + error.code + ":" + error.message); 
           response.error("failed 2 :"+error.message);
         }//end push error
-      });//end push notification
+      );//end push notification
 
     },
     error: function(error) {
