@@ -421,6 +421,19 @@ Parse.Cloud.define("PostHates", function(request, response) {
         activity.save();
       }
 
+       //OBSOLETE in Iphone 5.0
+      var Operation = Parse.Object.extend("Operation");
+      var op = new Operation();
+      op.set("userId",uid);
+      op.set("secretId",request.params.secretId);
+      op.set("type","PostHates");
+      op.save();
+
+      if(uid==user.id){
+        console.log("PostHates from the same user");
+        response.success("Success");
+      }
+
       //***************************************************
       //PUSH TO OWNER
       //***************************************************
