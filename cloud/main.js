@@ -298,6 +298,8 @@ Parse.Cloud.define("FollowPost", function(request, response) {
       activity.set("viewed",false);
       activity.save();
 
+      response.success("success abc : "+user.id+" / " +result +" / "+ result.get("user") +" / "+result.id );
+
       //set push notification for owner
        /***********************
       Push Notification
