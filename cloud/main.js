@@ -278,7 +278,7 @@ Follow a post
 ************************************************/
 Parse.Cloud.define("FollowPost", function(request, response) {
   query = new Parse.Query("Secret");
-  // query.include("user");
+  query.include("user");
 
   query.get(request.params.secretId, {
     success: function(result) {
@@ -303,14 +303,13 @@ Parse.Cloud.define("FollowPost", function(request, response) {
       var op = new Operation();
       op.set("userId",uid);
       op.set("secretId",request.params.secretId);
-      op.set("type","FollowPost");
+      op.set("type","SecretLiked");
       op.save();
 
       if(uid==user.id){
-        console.log("FollowPost from the same user");
+        console.log("Liked from the same user");
         response.success("Success");
       }
-      
       //set push notification for owner
        /***********************
       Push Notification
@@ -328,7 +327,7 @@ Parse.Cloud.define("FollowPost", function(request, response) {
           badge: 1
 
         }
-      }, 
+      },{useMasterKey: true}).then(function()
       {
         success: function() {
         // Push was successful
