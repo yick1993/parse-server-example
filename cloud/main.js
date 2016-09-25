@@ -325,7 +325,7 @@ Parse.Cloud.define("FollowPost", function(request, response) {
         data: {
           alert: 'Someone followed your 呢D. \ue056 \ue056',
           badge: 1
-
+ 
         }
       },{useMasterKey: true}).then(function()
       {
