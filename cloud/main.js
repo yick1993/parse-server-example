@@ -278,7 +278,7 @@ Follow a post
 ************************************************/
 Parse.Cloud.define("FollowPost", function(request, response) {
   query = new Parse.Query("Secret");
-  query.include("user");
+  // query.include("user");
 
   query.get(request.params.secretId, {
     success: function(result) {
