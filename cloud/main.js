@@ -298,19 +298,6 @@ Parse.Cloud.define("FollowPost", function(request, response) {
       activity.set("viewed",false);
       activity.save();
 
-    //OBSOLETE in Iphone 5.0
-      var Operation = Parse.Object.extend("Operation");
-      var op = new Operation();
-      op.set("userId",uid);
-      op.set("secretId",request.params.secretId);
-      op.set("type","FollowPost");
-      op.save();
-
-      if(uid==user.id){
-        console.log("PostHates from the same user");
-        response.success("Success");
-      }
-      
       //set push notification for owner
        /***********************
       Push Notification
@@ -336,7 +323,7 @@ Parse.Cloud.define("FollowPost", function(request, response) {
         },//end push success
         error: function(error) {
           console.log("Got an error " + error.code + ":" + error.message); 
-          response.error("failed 2");
+          response.error("failed 2 :"+error.message);
         }//end push error
       });//end push notification
 
