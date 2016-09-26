@@ -139,7 +139,7 @@ Parse.Cloud.define("CommentSaved", function(request, response) {
                     alert: '\ue04a \ue04a Someone else replied to your 呢D. \ue056 \ue056',
                     badge: 1
                   }
-                },{ useMasterKey: true }, 
+                }, 
                 {
                   success: function() {
                 // Push was successful
