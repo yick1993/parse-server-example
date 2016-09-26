@@ -147,7 +147,7 @@ Parse.Cloud.define("CommentSaved", function(request, response) {
                 },//end push success
                 error: function(error) {
                   console.log("Got an error sending push notification " + error.code + ":" + error.message); 
-                  response.error("failed 2");
+                  response.error("failed 2 : "+ error + "hello");
                   }//end push error
                 });//END PUSH NOTIFICATION
               },
