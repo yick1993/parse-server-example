@@ -127,29 +127,29 @@ Parse.Cloud.define("CommentSaved", function(request, response) {
             Parse.Object.saveAll(activityArray, {
               success: function(objs) {
                 console.log("Save activities success");
-                var pushQuery = new Parse.Query(Parse.Installation);
-                //pushQuery.equalTo('deviceType', 'ios');
-                pushQuery.equalTo('enable', true);
-                pushQuery.notEqualTo("userId", request.params.userId);
-                pushQuery.equalTo("userId",ownerId);
+                // var pushQuery = new Parse.Query(Parse.Installation);
+                // //pushQuery.equalTo('deviceType', 'ios');
+                // pushQuery.equalTo('enable', true);
+                // pushQuery.notEqualTo("userId", request.params.userId);
+                // pushQuery.equalTo("userId",ownerId);
 
-                Parse.Push.send({
-                  where: pushQuery, // Set our Installation query
-                  data: {
-                    alert: '\ue04a \ue04a Someone else replied to your 呢D. \ue056 \ue056',
-                    badge: 1
-                  }
-                }, 
-                {
-                  success: function() {
-                // Push was successful
-                response.success("success push to post owner for new comment.");
-                },//end push success
-                error: function(error) {
-                  console.log("Got an error sending push notification " + error.code + ":" + error.message); 
-                  response.error("failed 2 : "+ error + "hello");
-                  }//end push error
-                });//END PUSH NOTIFICATION
+                // Parse.Push.send({
+                //   where: pushQuery, // Set our Installation query
+                //   data: {
+                //     alert: '\ue04a \ue04a Someone else replied to your 呢D. \ue056 \ue056',
+                //     badge: 1
+                //   }
+                // }, 
+                // {
+                //   success: function() {
+                // // Push was successful
+                // response.success("success push to post owner for new comment.");
+                // },//end push success
+                // error: function(error) {
+                //   console.log("Got an error sending push notification " + error.code + ":" + error.message); 
+                //   response.error("failed 2 : "+ error + "hello");
+                //   }//end push error
+                // });//END PUSH NOTIFICATION
               },
               error: function(error) { 
                 console.log("Got an error while saving activities " + error.code + ":" + error.message); 
