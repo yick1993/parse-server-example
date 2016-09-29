@@ -547,6 +547,7 @@ Parse.Cloud.define("SecretLiked", function(request, response) {
           console.log("Got an error " + error.code + ":" + error.message); 
           response.error("failed while like a post");
         }//end push error
+        ,useMasterKey: true
       });//end push notification
 
 
