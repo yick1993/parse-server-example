@@ -716,7 +716,6 @@ Parse.Cloud.job("jobGetTrend", function(request, status) {
 Before saving a secret, check for banned user
 **********************************************/
 Parse.Cloud.beforeSave("Secret", function(request, response) {
-  Parse.Cloud.useMasterKey();
   var secret = request.object;
   var user=request.object.get("user");
   var userId=user.id;
@@ -766,7 +765,6 @@ Parse.Cloud.beforeSave("Secret", function(request, response) {
 Before saving a comment, check for banned user
 **********************************************/
 Parse.Cloud.beforeSave("Comment", function(request, response) {
-  Parse.Cloud.useMasterKey();
   var secret = request.object;
   var user=request.object.get("user");
   var userId=user.id;
@@ -799,7 +797,6 @@ var Operation = Parse.Object.extend("Operation");
 
 // Check if stopId is set, and enforce uniqueness based on the stopId column.
 Parse.Cloud.beforeSave("Operation", function(request, response) {
-  Parse.Cloud.useMasterKey();
   if (!request.object.get("commentId")) {
     var query = new Parse.Query("Operation");
     query.equalTo("secretId", request.object.get("secretId"));
@@ -827,7 +824,6 @@ var Operation = Parse.Object.extend("Flag");
 
 // Check if stopId is set, and enforce uniqueness based on the stopId column.
 Parse.Cloud.beforeSave("Flag", function(request, response) {
-  Parse.Cloud.useMasterKey();
   if (request.object.get("secretId")) {
     console.log("Flag a secret");
     console.log(request.object.get("secretId"));

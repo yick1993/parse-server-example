@@ -19,6 +19,12 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://eb-dev.ap-southeast-1.elasticbeanstalk.com/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+  },
+    push: {
+    android: {
+        senderId: '155059185604',
+        apiKey: 'AIzaSyDMEtG-JEyBPnGsvEihEXih0cVYlmMLMsc'
+    }
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
