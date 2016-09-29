@@ -18,7 +18,7 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || 'EGoZo0sZZ1QLCg1a5boiPWfhlSKs0u8NKrKLlxTH', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://eb-dev.ap-southeast-1.elasticbeanstalk.com/parse',  // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+    classNames: ["Secret", "Comment"] // List of classes to support for query subscriptions
   },
     push: {
     android: {
