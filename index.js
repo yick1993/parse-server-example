@@ -12,7 +12,6 @@ if (!databaseUri) {
 }
 
 var pushConfig =  { pushTypes : { android: {ARN : 'arn:aws:sns:ap-southeast-1:422730382130:app/GCM/signalheart'},
-                                 },
                    accessKey: 'AKIAIS467O2EUMNWFSGA',
                    secretKey: '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',
                    region: "ap-southeast-1"
@@ -28,16 +27,17 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'cpX2tTZezdrl4eyBmO430g2Jl27TeuMljfpGa81E',
   masterKey: process.env.MASTER_KEY || 'EGoZo0sZZ1QLCg1a5boiPWfhlSKs0u8NKrKLlxTH', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://eb-dev.ap-southeast-1.elasticbeanstalk.com/parse',  // Don't forget to change to https if needed
-  liveQuery: {
-    classNames: ["Secret", "Comment"] // List of classes to support for query subscriptions
-  },
+  // liveQuery: {
+  //   classNames: ["Secret", "Comment"] // List of classes to support for query subscriptions
+  // },
   //   push: {
   //   android: {
   //       senderId: '155059185604',
   //       apiKey: 'AIzaSyDMEtG-JEyBPnGsvEihEXih0cVYlmMLMsc'
   //   }
   // }
-    push: pushConfig
+    push: pushConfig,
+    verbose: true
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
