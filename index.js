@@ -11,7 +11,7 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-var pushConfig =  { pushTypes : { android: {ARN : 'arn:aws:sns:ap-southeast-1:422730382130:app/GCM/signalheart'},
+var pushConfig =  { pushTypes : { android: {ARN : 'arn:aws:sns:ap-southeast-1:422730382130:app/GCM/signalheart'},},
                    accessKey: 'AKIAIS467O2EUMNWFSGA',
                    secretKey: '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',
                    region: "ap-southeast-1"
