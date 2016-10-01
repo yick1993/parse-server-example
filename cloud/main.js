@@ -528,7 +528,8 @@ Parse.Cloud.define("SecretLiked", function(request, response) {
       //***************************************************
       var pushQuery = new Parse.Query(Parse.Installation);
       pushQuery.equalTo('enable', true);
-      pushQuery.equalTo("userId",user.id);
+      // pushQuery.equalTo("userId",user.id);
+      pushQuery.equalTo("deviceToken","APA91bGi_9Nxr9zoIEpd5ec2EZ8g2oCBetmGH_vMzxcr7cQZxnMeKY6Dxa6QQQVEjXoLFoCjvjDmsT4lVTn-dn19wSC6m7dw0kBBhmNJzvEqIhv1OF0sZwWvpg2wvp36LCtddaUfD7dF");
       console.log("Start Push Notification for user " + user.id);
       Parse.Push.send({
         where: pushQuery, // Set our Installation query
